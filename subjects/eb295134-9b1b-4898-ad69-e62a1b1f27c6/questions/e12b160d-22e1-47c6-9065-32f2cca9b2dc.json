@@ -36,14 +36,46 @@
       "potentialRisks": [],
       "potentialAssumptions": [],
       "potentialConstraints": [],
-      "potentialRequirements": []
+      "potentialRequirements": [
+        "Limit direct access to ESXi from \"VMware administrator jump station\" only."
+      ]
     },
     {
-      "arguments": [],
+      "arguments": [
+        {
+          "argument": "Free communications between management VMs and management cluster ESXi host.",
+          "qualityImpacts": [
+            {
+              "notes": "",
+              "impact": "positive",
+              "quality": "manageability"
+            },
+            {
+              "notes": "",
+              "impact": "negative",
+              "quality": "security"
+            }
+          ]
+        },
+        {
+          "argument": "Less physical VLANs and firewall rules to manage.",
+          "qualityImpacts": [
+            {
+              "notes": "",
+              "impact": "positive",
+              "quality": "manageability"
+            }
+          ]
+        }
+      ],
       "exampleReply": "No",
-      "potentialRisks": [],
+      "potentialRisks": [
+        "Running out of IPS if number of management VMs higher than anticipated. e.g. due to new VCF version."
+      ],
       "potentialAssumptions": [],
-      "potentialConstraints": [],
+      "potentialConstraints": [
+        "Number of physical subnets/VLANS limited."
+      ],
       "potentialRequirements": []
     }
   ],
