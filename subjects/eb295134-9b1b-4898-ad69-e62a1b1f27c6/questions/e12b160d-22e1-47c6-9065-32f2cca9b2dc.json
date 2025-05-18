@@ -5,7 +5,33 @@
   "subjectId": "eb295134-9b1b-4898-ad69-e62a1b1f27c6",
   "potentialReplies": [
     {
-      "arguments": [],
+      "arguments": [
+        {
+          "argument": "The whole subnet is dedicated for ESXi VMkernel ease planning and scalability",
+          "qualityImpacts": [
+            {
+              "notes": "",
+              "impact": "positive",
+              "quality": "manageability"
+            }
+          ]
+        },
+        {
+          "argument": "Different network access to Management VM from ESXI management.",
+          "qualityImpacts": [
+            {
+              "notes": "",
+              "impact": "positive",
+              "quality": "security"
+            },
+            {
+              "notes": "More firewall rules to manage. Need routing between VM and ESXI management.",
+              "impact": "negative",
+              "quality": "manageability"
+            }
+          ]
+        }
+      ],
       "exampleReply": "Yes",
       "potentialRisks": [],
       "potentialAssumptions": [],
