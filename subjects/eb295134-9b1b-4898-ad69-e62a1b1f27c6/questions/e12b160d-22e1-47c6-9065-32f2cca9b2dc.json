@@ -1,0 +1,36 @@
+{
+  "id": "e12b160d-22e1-47c6-9065-32f2cca9b2dc",
+  "question": "Separate VLAN for Management VMs and ESXi Management VMK Interfaces?",
+  "notes": "In the past, the only option was no separation.",
+  "subjectId": "eb295134-9b1b-4898-ad69-e62a1b1f27c6",
+  "potentialReplies": [
+    {
+      "arguments": [],
+      "exampleReply": "Yes",
+      "potentialRisks": [],
+      "potentialAssumptions": [],
+      "potentialConstraints": [],
+      "potentialRequirements": []
+    },
+    {
+      "arguments": [],
+      "exampleReply": "No",
+      "potentialRisks": [],
+      "potentialAssumptions": [],
+      "potentialConstraints": [],
+      "potentialRequirements": []
+    }
+  ],
+  "potentialKeyConsiderations": [],
+  "relatedConcepts": [],
+  "diagrams": [
+    {
+      "title": "Without separation",
+      "diagramCode": "```mermaid\ngraph TD;\n    ManagementCluster --> CombinedManagementNetwork;\n    CombinedManagementNetwork --> ESXiVMkernelManagementManagementHosts;\n    CombinedManagementNetwork --> ManagementVirtualMachines;\n    ManagementVirtualMachines --> SDDC_Manager;\n    ManagementVirtualMachines --> vCenterManagementCluster;\n    ManagementVirtualMachines --> NSXmanagementCluter;\n    ManagementVirtualMachines --> ...;\n\n```"
+    },
+    {
+      "title": "With separation",
+      "diagramCode": "```mermaid\ngraph TD;\n    ManagementCluster --> ManagementVMNetwork;\n    ManagementCluster --> ESXiManagementNetwork;\n    ESXiManagementNetwork --> ESXiVMkernelManagementManagementHosts;\n    ManagementVMNetwork --> ManagementVirtualMachines;\n    ManagementVirtualMachines --> SDDC_Manager;\n    ManagementVirtualMachines --> vCenterManagementCluster;\n    ManagementVirtualMachines --> NSXmanagementCluter;\n    ManagementVirtualMachines --> ...;\n```"
+    }
+  ]
+}
